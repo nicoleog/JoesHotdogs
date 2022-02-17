@@ -12,7 +12,6 @@
         <div class="order"> 
             <script language="Javascript">
                 
-
                 var numHot = prompt("How many hotdogs do you want?","");
                 numHot = parseInt(numHot);
                 document.write("Hot Dogs Ordered: " + numHot + '<br/>');
@@ -26,6 +25,7 @@
                 numSoda = parseInt(numSoda);
                 document.write("Sodas Ordered: " + numSoda + '<br/>');
                 document.write('<br/>');
+                
                 subTotal = (3.75 * numHot) + (2 * numFry) + (1.80 * numSoda);
                 document.write("Subtotal: $" + subTotal + '<br/>');
                 document.write('<br/>');
@@ -33,18 +33,22 @@
                 if (subTotal >= 20) {
                     discount = (.1 * subTotal);
                     discount = Math.round(100*discount)/100;
+                    
                     subTotal = (0.9 * subTotal);
                     subTotal = Math.round(100*subTotal)/100;
+                    
                     document.write("Discount: $" + discount + '<br/>');
                     document.write("Subtotal: $" + subTotal + '<br/>');
                     document.write('<br/>');
                 } 
                 
                 
-                subTotal = (subTotal * .9375);
-                subTotal = Math.round(100*subTotal)/100;
+                
                 tax = (subTotal * .0625);
                 tax = Math.round(100*tax)/100;
+                subTotal = subTotal + tax;
+                subTotal = Math.round(100*subTotal)/100;
+                
                 document.write("Tax: $" + tax + '<br/>');
                 document.write("Final Total: $" + subTotal + '<br/>');
 
